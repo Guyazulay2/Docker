@@ -1,5 +1,8 @@
 #!/bin/python3.7
 
+############################Docker script that install Docker, deploy containers, Pull images, and delete images/containers.#######
+######
+
 from time import sleep
 import os
 import datetime
@@ -33,9 +36,13 @@ def Deploy():
         os.system("sudo docker ps -a")
 
 
-def show():
+def Show():
     print("---Showing All Containers And Images---")
+    print("---------Images---------")
+    sleep(0.5)
     os.system("sudo docker images")
+    print("--------Containers-------")
+    sleep(0.5)
     os.system("sudo docker ps -a")
 
 
@@ -53,18 +60,15 @@ def Delete():
 
         elif choose == "2":
             s = input("You sure that you want to delete all containers ? (y/n) >>:")
-            if s == "y" or s == "yes":
-                print("Delete all containers ..")
-                sleep(0.5)
-                print("Stop the containers..")
+            if s == "y" or s == "yes" or s == "YES":
+                print("Stop The containers..")
                 sleep(0.5)
                 os.system("docker stop $(docker ps -a -q)")
-                print("Delete the containers..")
+                print("Delete The containers ..")
                 sleep(0.5)
                 os.system("docker rm $(docker ps -a -q)")
-            elif s == "n" or s == "no":
+            elif s == "n" or s == "no" or s == "NO":
                 print("Bye Bye")
-
 
         elif choose == "3":
             os.system("sudo docker images")
@@ -94,7 +98,7 @@ def main():
         if choice == "3":
             Deploy()
         if choice == "4":
-            show()
+            Show()
         if choice == "5":
             Delete()
         if choice == "6":
