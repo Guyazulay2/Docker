@@ -25,10 +25,10 @@ docker images
 >> show overall docker info :
 docker info , docker --varsion
 
->> Stop and delete a single container:
+>> stop and delete a single container:
 [ docker stop Container_nam ] [ docker rm Container_name ]
 
->> Delete a docker image:
+>> delete a docker image:
 docker rmi myimage
 
 >> stop all containers :
@@ -39,5 +39,21 @@ docker rm $(docker ps -aq)
 
 >> delete all images :
 docker rmi $(docker images -q)
+
+>> run a container behind the scenes :
+sudo docker run –d centos
+
+>> start/stop container :
+sudo docker start/stop
+
+>> pull image that you want :
+sudo docker pull centos/ubuntu
+
+>> see logs of the runner container :
+sudo docker logs [container id ]
+
+>> search image :
+sudo docker search centos/ubuntu
+
 
 ##EOF##
