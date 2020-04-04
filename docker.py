@@ -12,10 +12,10 @@ def DockerUI():
     print("<< Pulling DockerUI >>")
     sleep(0.5)
     os.system("docker pull abh1nav/dockerui:latest")
-    os.system("docker run -d -p 8000:8000 -v /var/run/docker.sock:/docker.sock \--name dockerui abh1nav/dockerui:latest -e=/docker.sock")
-    print("<< Opens on Port 8000 >>")
+    os.system("docker run -d -p 8010:8020 -v /var/run/docker.sock:/docker.sock \--name dockerui abh1nav/dockerui:latest -e=/docker.sock")
+    print("<< Opens on Port 8010 or 8020 >>")
     sleep(0.5)
-    print("Now Open your browser to http://<docker host ip>:8000")
+    print("Now Open your browser to http://<docker host ip>:8010 or 8020")
 
 
 def Install():
