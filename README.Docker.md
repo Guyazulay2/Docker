@@ -1,5 +1,5 @@
 # Dockerscripts
-This repository contains some useful scripts and Dockerfiles to create Docker containers.
+This repository contains some useful scripts and Dockerfiles to create Docker containers and Pull images.
 
 
 # Installation:
