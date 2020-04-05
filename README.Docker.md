@@ -56,4 +56,8 @@ sudo docker logs [container id ]
 sudo docker search centos/ubuntu
 
 
+add current user to docker group so there is no need to use sudo when running docker
+
+sudo usermod -aG docker $(whoami)
+
 ##EOF##
