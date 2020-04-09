@@ -18,14 +18,15 @@ WORKDIR /home
 
 
 
-
 ######### Finaly to build the image : 
 
     > sudo docker build -t [Your dockerfile] .
     
  After you create ubuntu image and create a container you can log in at the following point:
- 
+[ docker run -it ubuntu ] 
+or : 
 [ docker run -t -i ubuntu /bin/bash ]
-afetr that you need to do [ apt-get update ] and then you can install packages.
+
+afetr that you need to do [ apt-get update ] and then you can install packages in your ubuntu.
 
 
