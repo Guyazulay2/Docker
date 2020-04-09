@@ -1,25 +1,26 @@
 Create a directory enter it and create your file [touch Dockerfile] . 
 
-# Pull base image.
-FROM ubuntu18.04
+##### simple example of a Dockerfile ####
 
-# Install LXDE and VNC server.
-RUN \
-  apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y lxde-core lxterminal tightvncserver && \2
-  rm -rf /var/lib/apt/lists/*
+FROM ubuntu18.04:latest
+MAINTAINER Guy Azulay "guykort98@gmail.com"
 
-# Define working directory.
-WORKDIR /data
+RUN apt-get update -y
+RUN apt-get upgrade -y 
+RUN apt-get install python3-pip -y 
+RUN pip3 install Flask -y 
+RUN pip3 install boto3 -y 
 
-# Define default command.
-CMD ["bash"]
 
-# Expose ports.
-EXPOSE 5901
+ADD hello.py /home/guy/Desktop/hello.py
+
+WORKDIR /home/guy/Desktop
 
 
 
-######### to build the image , 
 
-> sudo docker build -t [Your directory] .
+
+######### Finaly to build the image : 
+
+    > sudo docker build -t [Your directory] .
+
