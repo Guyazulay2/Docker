@@ -21,5 +21,5 @@ WORKDIR /home
 
 ######### Finaly to build the image : 
 
-    > sudo docker build -t [Your directory] .
+    > sudo docker build -t [Your dockerfile] .
 
