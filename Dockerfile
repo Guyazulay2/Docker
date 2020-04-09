@@ -9,12 +9,11 @@ RUN apt-get update -y
 RUN apt-get upgrade -y 
 RUN apt-get install python3-pip -y 
 RUN pip3 install Flask -y 
-RUN pip3 install boto3 -y 
-
-
+RUN pip3 install boto3 -y &&  apt-get install awscli 
+RUN echo "Finished"
 ADD hello.py /home/guy/Desktop/hello.py
 
-WORKDIR /home/guy/Desktop
+WORKDIR /home
 
 
 
