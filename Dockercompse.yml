@@ -1,0 +1,27 @@
+Create a directory enter it and create your file [vim  Docker-compose.yml] . 
+############################################
+
+VVV A simple Example of docker compose file VVV
+
+
+
+version: '3'
+services:
+     mysql_database:
+          image: "mysql:latest"
+          enviroment:
+            - MYSQL_ROOT_PASSWORD="passoword"
+            
+            
+     web_test:
+          image: "nginx:latest"
+          
+          
+
+##########################################
+
+To run it : docker-compose up ###
+
+Run the container Behind the Scenes : docker-compose up -d 
+
+To shut down the container or up : docker-compose down/up
