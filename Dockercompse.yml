@@ -6,21 +6,25 @@ VVV A simple Example of docker compose file VVV
 
 
 version: '3'
-services:
-     mysql_database:
-          image: "mysql:latest"
-          enviroment:
-            - MYSQL_ROOT_PASSWORD="passoword"
-            
-            
-     web_test:
-          image: "nginx:latest"
+services:         ######### Here we have all the containers ###
+  db:  ## data base ##
+    image: mysql ### Which image would you like to take ###
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
+  phpmyadmin: ### Another container ###
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
           
           
 
 ##########################################
 
-To run it : docker-compose up ###
+To run it : docker-compose up ## Inside the folder that contains docker-compose ##
 
 Run the container Behind the Scenes : docker-compose up -d 
 
