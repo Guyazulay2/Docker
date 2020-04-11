@@ -1,14 +1,38 @@
 # Dockerscripts
 This repository contains some useful scripts and Dockerfiles to create Docker containers and Pull images.
 
+# Install Docker-Compose :
+first update :
 
-# Installation:
+    apt-get update
+    
+check the current release and if necessary, update it in the command below :
+    
+    sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+    
+set the permissions :
+
+    sudo chmod +x /usr/local/bin/docker-compose
+    
+checking the version :
+
+    docker-compose --version
+    
+You can also : 
+
+    sudo apt install docker-compose
+    
+    
+
+
+# Installation Docker :
 
 https://get.docker.com
 
 curl -fsSL https://get.docker.com -o get-docker.sh
 
 bash ./get-docker.sh
+
 
 
 # Some useful commands:
