@@ -25,7 +25,7 @@ You can also :
     
 
 
-# Installation Docker :
+# Docker Installation :
 
 https://get.docker.com
 
