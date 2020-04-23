@@ -1,19 +1,22 @@
-Create a directory enter it and create your file [touch Dockerfile] . 
+Create a directory enter it and create your file [touch/nano/vim Dockerfile] . 
 
 ##### simple example of a Dockerfile ####
 
 FROM ubuntu:latest
 MAINTAINER Guy Azulay "guykort98@gmail.com"
 
-RUN apt-get update -y
-RUN apt-get upgrade -y 
+RUN apt-get update -y && apt-get upgrade -y 
 RUN apt-get install python3-pip -y 
-RUN pip3 install Flask 
+RUN pip3 install Flask -y
 RUN pip3 install boto3 && apt-get install awscli 
+RUN apt-get install curl -y && apt-get install net-tools -y
 RUN echo "Finished"
-ADD hello.py /home/guy/Desktop/hello.py
 
-WORKDIR /home
+COPY net4u_forever.sh /usr/local/bin/net4u_forever.sh ### copy the script
+RUN chmod +x /usr/local/bin/net4u_forever.sh
+
+
+
 
 
 
