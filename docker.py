@@ -12,11 +12,9 @@ def DockerUI():
     print("<< Pulling DockerUI >>")
     sleep(0.5)
     os.system("docker pull abh1nav/dockerui:latest")
-    os.system("docker run -d -p 8010:8010 -v /var/run/docker.sock:/docker.sock \--name dockerui abh1nav/dockerui:latest -e=/docker.sock")
-    print("<< Opens on Port 8010 >>")
+    os.system("docker run -d -p 80 -v /var/run/docker.sock:/docker.sock \--name dockerui abh1nav/dockerui:latest -e=/docker.sock")
     sleep(0.5)
-    print("Now Open your browser to http://<docker host ip>:8010")
-
+    print("<< Check the port that opens and enter the site >>")
 
 def Install():
     print("<<<Install Docker>>>")
@@ -25,8 +23,7 @@ def Install():
     os.system("bash get - docker.sh")
     print("<<< Docker Installation is Done >>>")
 
-
-def Pull_Images():
+def Pull_Images():            ############### Pull images from "Docker Hub" ###
     s = input("Enter the image name that you want to pull >>:")
     os.system("sudo docker pull" " " + s)
     sleep(0.5)
@@ -56,7 +53,6 @@ def Deploy():
         os.system("sudo docker ps -a")
 
 
-
 def Show():
     print("---Showing All Containers And Images---")
     print("---------Images---------")
@@ -84,10 +80,10 @@ def Delete():
             if s == "y" or s == "yes" or s == "YES":
                 print("Stop The containers..")
                 sleep(0.5)
-                os.system("docker stop $(docker ps -a -q)")
+                os.system("sudo docker stop $(docker ps -a -q)")
                 print("Delete The containers ..")
                 sleep(0.5)
-                os.system("docker rm $(docker ps -a -q)")
+                os.system("sudo docker rm $(docker ps -a -q)")
             elif s == "n" or s == "no" or s == "NO":
                 print("Bye Bye")
 
