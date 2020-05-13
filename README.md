@@ -77,7 +77,7 @@ sudo docker pull centos/ubuntu
 sudo docker logs [container id ]
 
 >> search image :
-sudo docker search centos/ubuntu
+sudo docker search centos/ubuntu/nginx/apache2
 
 
 add current user to docker group so there is no need to use sudo when running docker
