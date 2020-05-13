@@ -27,7 +27,3 @@ EXPOSE 80
 
 ###############
 
-docker build -t apacheubuntu2:1.0   ### create the docker image
-
-sudo docker run -t -d -P --name apachcontainer apacheubuntu2:1.0  ### run a container
-
