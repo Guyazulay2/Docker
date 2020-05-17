@@ -7,8 +7,8 @@ from time import sleep
 def Install():
     c = input("(1) | Install docker on this computer\n(2) | Install docker on another computer\nYour Choice >>:")
     if c == "1":
-        os.system("sudo apt-get update ; sudo apt-get install curl ; bash get - docker.sh")
-        os.system("curl - fsSL https: // get.docker.com - o get - docker.sh")
+        os.system("sudo apt-get update ; sudo apt-get install curl ; curl - fsSL https: // get.docker.com - o get - docker.sh")
+        os.system("bash get - docker.sh")
         print("<<< Docker Installation is Done >>>")
         os.system("docker --version ; sudo systemctl status docker")
     elif c == "2":
