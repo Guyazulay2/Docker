@@ -14,11 +14,11 @@ def Install():
     elif c == "2":
         ip = input("Enter the slave IP >>:")
         passwd = input("Enter the Root Password >>: ")
+        os.system("sshpass -p '{}' ssh root@{} sudo apt-get update ; sudo apt-get install curl".format(passwd, ip))
         os.system("sshpass -p '{}' ssh root@{} ".format(passwd, ip))
-        os.system("sudo apt-get update ; sudo apt-get install curl ; bash get - docker.sh")
-        os.system("curl - fsSL https: // get.docker.com - o get - docker.sh")
+        os.system("sshpass -p '{}' ssh root@{} curl - fsSL https: // get.docker.com - o get - docker.sh".format(passwd, ip))
+        os.system("sshpass -p '{}' ssh root@{} bash get - docker.sh"(passwd, ip))
         print("<<< Docker Installation is Done >>>")
-        os.system("docker --version ; sudo systemctl status docker")
 
 def Pull_Images():
     s = input("Enter the image name that you want to pull >>:")
@@ -33,12 +33,12 @@ def Images():
     c = input("Deploy :\n(1) | Nginx\n(2) | Centos")
     if c == "1" or c == "nginx":
         os.system("sudo docker pull nginx")
-        s = input("Enter the port that you want >>:")
+        s = input("Enter the port that you want to open >>:")
         os.system("sudo docker run -d -p" " " + s )
 
     elif c == "2" or c ==  "centos":
         os.system("sudo docker pull centos")
-        a = input("Enter The command for centos >>:")
+        a = input("Enter A command for centos >>:")
         os.system("sudo docker run -d centos /bin/bash -c" " "+ a)
 
 def DockerUI():
@@ -116,7 +116,6 @@ def Delete():
                 os.system("sudo docker rmi -f `docker images -a -q`")
             elif q == "n" or q == "no" or q == "NO":
                 print("Bye Bye")
-
 
 def Show():
     print("---Showing All Containers And Images---")
