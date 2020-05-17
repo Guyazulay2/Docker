@@ -58,15 +58,15 @@ def Deploy():
         choose=input("(1) | Create containers without ports\n(2) | Create containers with ports\nYour choice :")
         if choose == "1":
             b = input("Enter the image that you want to deploy >>:")
-            container = input("How many Containers Would you like to create :")
-            for i in container:
+            con = int(input("How many Containers Would you like to create :"))
+            for i in range(con):
                 os.system("sudo docker run -d" " "+ b)
         os.system("sudo docker ps -a")
 
         if choose == "2":
             c = input("Write the port and image name that you want, for example: 9000:80 [Image_name] >>:")
-            container = input("How many Containers Would you like to create :")
-            for i in container:
+            con = int(input("How many Containers Would you like to create :"))
+            for i in range(con):
                 os.system("sudo docker run -d -p" " "+ c)
         os.system("sudo docker ps -a")
 
