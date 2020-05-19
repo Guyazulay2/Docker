@@ -5,7 +5,7 @@ from time import sleep
 
 
 def Install():
-    c = input("(1) | Install docker on this computer\n(2) | Install docker on another computer\nYour Choice >>:")
+    c = input("(1) | Install docker on this computer\n(2) | Install docker on other computer\nYour Choice >>:")
     if c == "1":
         os.system("sudo apt-get update ; sudo apt-get install curl ; curl - fsSL https: // get.docker.com - o get - docker.sh")
         os.system("bash get - docker.sh")
@@ -25,7 +25,6 @@ def Pull_Images():
     os.system("sudo docker pull" " " + s)
     sleep(0.5)
     print("Your Image :",s ,"<< Pulling Successfully >>")
-    sleep(0.5)
     print("The Images >>:")
     os.system("sudo docker images")
 
@@ -64,7 +63,7 @@ def Deploy():
         os.system("sudo docker ps -a")
 
         if choose == "2":
-            c = input("Write the port and image name that you want, for example: 9000:80 [Image_name] >>:")
+            c = input("Write the port and then the image name that you want, for example: 9000:80 [Image_name] >>:")
             con = int(input("How many Containers Would you like to create :"))
             for i in range(con):
                 os.system("sudo docker run -d -p" " "+ c)
@@ -76,9 +75,9 @@ def Containers():
         print("All the ips and names of the containers that you have >>")
         os.system("sudo docker inspect -f '{{.Name}} - {{.NetworkSettings.IPAddress }}' $(docker ps -aq)")
     elif d == "2":
-          ip = input("Enter Container Name/ID :")
-          print("Container IP :")
-          os.system("docker inspect"+" "+ ip + "| grep  'IPAddress'  | awk 'NR==2 {print $2}' | cut -d '\"' -f2")
+        ip = input("Enter Container Name/ID :")
+        print("Container IP :")
+        os.system("docker inspect"+" "+ ip + "| grep  'IPAddress'  | awk 'NR==2 {print $2}' | cut -d '\"' -f2")
 
 def Delete():
         print(">>> Those the containers <<<")
@@ -105,7 +104,7 @@ def Delete():
             print("Deleting >>:", image)
             sleep(0.5)
             os.system("sudo docker rmi" " " + image)
-            print(image,"<<Deleted Successfully>>")
+            print("Image :",image,"<<Deleted Successfully>>")
             os.system("sudo docker images")
 
         elif choose == "4":
@@ -128,8 +127,8 @@ def Show():
 
 def Nginx():
     print("Pull nginx image and run 2 nginx containers ...")
+    os.system("sudo docker pull nginx")
     for i in range(2):
-        os.system("sudo docker pull nginx ; sudo docker run -d -p 80 nginx")
         os.system("sudo docker run -d -p 80 -v /home/guy/Desktop/web:/usr/share/nginx/html nginx")
 
  ### MENU ###
