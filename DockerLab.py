@@ -17,7 +17,7 @@ def Install():
         os.system("sshpass -p '{}' ssh root@{} sudo apt-get update ; sudo apt-get install curl".format(passwd, ip))
         os.system("sshpass -p '{}' ssh root@{} ".format(passwd, ip))
         os.system("sshpass -p '{}' ssh root@{} curl - fsSL https: // get.docker.com - o get - docker.sh".format(passwd, ip))
-        os.system("sshpass -p '{}' ssh root@{} bash get - docker.sh"(passwd, ip))
+        os.system("sshpass -p '{}' ssh root@{} bash get - docker.sh".format(passwd, ip))
         print("<<< Docker Installation is Done >>>")
 
 def Pull_Images():
