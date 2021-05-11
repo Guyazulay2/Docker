@@ -17,13 +17,11 @@ echo "<< Check the port that opens and enter the site >>"
 function Containers(){
 echo -e "(1) | Show all Containers Names/IP\n(2) | Enter container ID\nYour Choice >:"
 read F
-if [ $F == "1" ]
-then
+if [ $F == "1" ]; then
         echo "All the ips and names of the containers that you have >>"
         sudo docker inspect -f '{{.Name}} - {{.NetworkSettings.IPAddress }}' $(docker ps -aq)
 
-elif [ $F == "2" ]
-then
+elif [ $F == "2" ]; then
         echo "Enter Container Name/ID :"
         read CONT
         echo "Container IP :"
@@ -36,14 +34,12 @@ function Install(){
 echo "Install Docker"
 echo -e "(1) | Install docker on this computer\n(2) | Install docker on another computer\nYour Choice >>:"
 read C
-if [ $C == "1" ]
-then
+if [ $C == "1" ]; then
         sudo apt-get update ; sudo apt-get install curl ; bash get - docker.sh
         curl - fsSL https: // get.docker.com - o get - docker.sh
         echo "<<< Docker Installation is Done >>>"
         docker --version ; sudo systemctl status docker
-elif [ $C == "2" ]
-then
+elif [ $C == "2" ]; then
         echo "Enter The IP >>:"
         read IP
         echo "Enter the Password >>:"
@@ -71,8 +67,7 @@ echo -e "Those the images :\n-------------"
 sudo docker images
 echo -e "(1) | Create containers without ports\n(2) | Create containers with ports\n Your Choice >:"
 read CHOOSE
-if [ $CHOOSE == "1" ]
-then
+if [ $CHOOSE == "1" ]; then
 echo "Enter the image that you want to deploy >>:"
 read I
 echo "How much Containers do you want? >:"
@@ -85,8 +80,7 @@ read H
 	done
 
 
-elif [ $CHOOSE == "2" ]
-then
+elif [ $CHOOSE == "2" ]; then
 echo "Write the port and image name that you want, for example: 9000:9010 [Image_name] >>:"
 read P
 echo "How much Containers do you want? >:"
@@ -114,21 +108,18 @@ echo "<<< Those the containers >>> "
 sudo docker ps -a
 echo -e "(1) | Remove Container\n(2) | Remove all containers\n(3) | Remove Images\n(4) | Remove all Images\nYour choice >>:"
 read R
-if [ $R == "1" ]
-then
+if [ $R == "1" ]; then
 	    echo "Enter the container id that you want to delete"
 	    read A
 	    sudo docker rm -f $A
 	    echo "Container :",$A ,"Deleted Successfully"
 
-elif [ $R == "2" ]
-then
+elif [ $R == "2" ]; then
 
 	    echo "Delete the containers..."
 	    sudo docker rm -f $(Docker ps -a -q)
 
-elif [ $R == "3" ]
-then
+elif [ $R == "3" ]; then
 	    sudo docker images
 	    echo "Enetr the Image (Name) or Image (id) to delete >>:"
 	    read IMAGE
@@ -136,8 +127,7 @@ then
 	    echo "Image >>:",$IMAGE ,"<<Deleted Successfully>>"
 	    sudo docker images
 
-elif [ $R == "4" ]
-then
+elif [ $R == "4" ]; then
         echo "Delete The Images .."
         sudo docker rmi -f `docker images -a -q`
 fi
@@ -169,44 +159,33 @@ echo "----Docker Menu----:
 (9) | exit
 Your Choice >>:"
 read CHOICE
-if [ $CHOICE == "1" ]
-then
+if [ $CHOICE == "1" ]; then
 Install
 
-elif [ $CHOICE == "2" ]
-then
+elif [ $CHOICE == "2" ]; then
 Pullimages
 
-elif [ $CHOICE == "3" ]
-then
+elif [ $CHOICE == "3" ]; then
 Deploy
 
-elif [ $CHOICE == "4" ]
-then
+elif [ $CHOICE == "4" ]; then
 Show
 
-elif [ $CHOICE == "5" ]
-then
+elif [ $CHOICE == "5" ]; then
 Delete
 
-elif [ $CHOICE == "6" ]
-then
+elif [ $CHOICE == "6" ]; then
 Dockerui
 
-elif [ $CHOICE == "7" ]
-then
+elif [ $CHOICE == "7" ]; then
 Containers
 
-elif [ $CHOICE == "8" ]
-then
+elif [ $CHOICE == "8" ]; then
 Nginx
 
-elif [ $CHOICE == "9" ]
-then
+elif [ $CHOICE == "9" ]; then
 echo "Bye Bye"
-
 
 fi
 }
-
-Menu
+Menu()
